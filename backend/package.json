@@ -6,8 +6,7 @@
   "scripts": {
     "start:dev": "npx nest start --watch",
     "start": "node dist/main.js",
-    "build": "npx nest build && npm run copy:assets",
-    "copy:assets": "shx mkdir -p dist/prisma dist/uploads dist/temp_uploads && cp -r prisma/* dist/prisma/ && cp -r uploads/* dist/uploads/ 2>/dev/null || : && cp -r temp_uploads/* dist/temp_uploads/ 2>/dev/null || :",
+    "build": "npx nest build && node scripts/copy-assets.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "render-build": "npm install && npm run build",
