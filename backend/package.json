@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start:dev": "nest start --watch",
+    "start:dev": "npx nest start --watch",
     "start": "node dist/main.js",
-    "build": "npm install -g @nestjs/cli && nest build",
+    "build": "npx nest build",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "lint": "eslint '{src,test}/**/*.ts' --fix"
