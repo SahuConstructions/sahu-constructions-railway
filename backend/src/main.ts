@@ -11,8 +11,14 @@ async function bootstrap() {
   app.setGlobalPrefix('api/v1');
 
   // ✅ Enable CORS
+  const defaultOrigins = ['http://localhost:3001'];
+  const origins = (process.env.CORS_ORIGINS || '')
+    .split(',')
+    .map((o) => o.trim())
+    .filter(Boolean);
+
   app.enableCors({
-    origin: ['http://localhost:3001'], // frontend origin
+    origin: origins.length ? origins : defaultOrigins,
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
