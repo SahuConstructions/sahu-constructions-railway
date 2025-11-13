@@ -6,7 +6,7 @@ const apiBaseUrl = `${apiHost.replace(/\/$/, "")}/api/v1`;
 
 const api = axios.create({
   baseURL: apiBaseUrl,
-  timeout: 60000, // ⏱ 10s safety timeout
+  timeout: 10000, // ⏱ 10s safety timeout
   headers: {
     "Content-Type": "application/json",
   },
