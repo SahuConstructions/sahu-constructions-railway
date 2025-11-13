@@ -1,8 +1,11 @@
 // src/lib/api.ts
 import axios, { AxiosError } from "axios";
 
+const apiHost = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+const apiBaseUrl = `${apiHost.replace(/\/$/, "")}/api/v1`;
+
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000/api/v1",
+  baseURL: apiBaseUrl,
   timeout: 60000, // ⏱ 10s safety timeout
   headers: {
     "Content-Type": "application/json",
