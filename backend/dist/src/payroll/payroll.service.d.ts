@@ -5,30 +5,32 @@ export declare class PayrollService {
     private uploadService;
     constructor(prisma: PrismaService, uploadService: UploadService);
     createPayrollRun(month: number, year: number): Promise<{
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
         status: import(".prisma/client").$Enums.PayrollStatus;
+        createdAt: Date;
+        id: number;
         year: number;
         month: number;
+        updatedAt: Date;
         note: string | null;
     }>;
     listPayrollRuns(): Promise<{
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
         status: import(".prisma/client").$Enums.PayrollStatus;
+        createdAt: Date;
+        id: number;
         year: number;
         month: number;
+        updatedAt: Date;
         note: string | null;
     }[]>;
     getPayrollRun(id: number): Promise<{
         items: ({
             employee: {
-                id: number;
                 createdAt: Date;
+                id: number;
+                userId: number;
                 name: string;
                 phone: string | null;
+                managerId: number | null;
                 joinDate: Date;
                 confirmed: boolean;
                 inTime: string | null;
@@ -44,8 +46,6 @@ export declare class PayrollService {
                 dob: Date | null;
                 pfNumber: string | null;
                 uan: string | null;
-                managerId: number | null;
-                userId: number;
             };
             payslip: {
                 id: number;
@@ -57,12 +57,12 @@ export declare class PayrollService {
             };
         } & {
             id: number;
+            employeeId: number;
             hra: number | null;
             otherAllowance: number | null;
             pf: number | null;
             pt: number | null;
             basic: number | null;
-            employeeId: number;
             payrollRunId: number;
             lopDays: number | null;
             gross: number;
@@ -72,23 +72,23 @@ export declare class PayrollService {
             paymentId: number | null;
         })[];
     } & {
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
         status: import(".prisma/client").$Enums.PayrollStatus;
+        createdAt: Date;
+        id: number;
         year: number;
         month: number;
+        updatedAt: Date;
         note: string | null;
     }>;
     calculatePayroll(id: number): Promise<{
         items: {
             id: number;
+            employeeId: number;
             hra: number | null;
             otherAllowance: number | null;
             pf: number | null;
             pt: number | null;
             basic: number | null;
-            employeeId: number;
             payrollRunId: number;
             lopDays: number | null;
             gross: number;
@@ -98,21 +98,23 @@ export declare class PayrollService {
             paymentId: number | null;
         }[];
     } & {
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
         status: import(".prisma/client").$Enums.PayrollStatus;
+        createdAt: Date;
+        id: number;
         year: number;
         month: number;
+        updatedAt: Date;
         note: string | null;
     }>;
     finalizePayroll(id: number): Promise<{
         items: ({
             employee: {
-                id: number;
                 createdAt: Date;
+                id: number;
+                userId: number;
                 name: string;
                 phone: string | null;
+                managerId: number | null;
                 joinDate: Date;
                 confirmed: boolean;
                 inTime: string | null;
@@ -128,17 +130,15 @@ export declare class PayrollService {
                 dob: Date | null;
                 pfNumber: string | null;
                 uan: string | null;
-                managerId: number | null;
-                userId: number;
             };
         } & {
             id: number;
+            employeeId: number;
             hra: number | null;
             otherAllowance: number | null;
             pf: number | null;
             pt: number | null;
             basic: number | null;
-            employeeId: number;
             payrollRunId: number;
             lopDays: number | null;
             gross: number;
@@ -148,21 +148,23 @@ export declare class PayrollService {
             paymentId: number | null;
         })[];
     } & {
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
         status: import(".prisma/client").$Enums.PayrollStatus;
+        createdAt: Date;
+        id: number;
         year: number;
         month: number;
+        updatedAt: Date;
         note: string | null;
     }>;
     publishPayroll(id: number): Promise<{
         items: ({
             employee: {
-                id: number;
                 createdAt: Date;
+                id: number;
+                userId: number;
                 name: string;
                 phone: string | null;
+                managerId: number | null;
                 joinDate: Date;
                 confirmed: boolean;
                 inTime: string | null;
@@ -178,8 +180,6 @@ export declare class PayrollService {
                 dob: Date | null;
                 pfNumber: string | null;
                 uan: string | null;
-                managerId: number | null;
-                userId: number;
             };
             payslip: {
                 id: number;
@@ -191,12 +191,12 @@ export declare class PayrollService {
             };
         } & {
             id: number;
+            employeeId: number;
             hra: number | null;
             otherAllowance: number | null;
             pf: number | null;
             pt: number | null;
             basic: number | null;
-            employeeId: number;
             payrollRunId: number;
             lopDays: number | null;
             gross: number;
@@ -206,21 +206,23 @@ export declare class PayrollService {
             paymentId: number | null;
         })[];
     } & {
-        id: number;
-        createdAt: Date;
-        updatedAt: Date;
         status: import(".prisma/client").$Enums.PayrollStatus;
+        createdAt: Date;
+        id: number;
         year: number;
         month: number;
+        updatedAt: Date;
         note: string | null;
     }>;
     private getMonthName;
     updatePayrollLineItem(id: number, dto: any): Promise<{
         employee: {
-            id: number;
             createdAt: Date;
+            id: number;
+            userId: number;
             name: string;
             phone: string | null;
+            managerId: number | null;
             joinDate: Date;
             confirmed: boolean;
             inTime: string | null;
@@ -236,17 +238,15 @@ export declare class PayrollService {
             dob: Date | null;
             pfNumber: string | null;
             uan: string | null;
-            managerId: number | null;
-            userId: number;
         };
     } & {
         id: number;
+        employeeId: number;
         hra: number | null;
         otherAllowance: number | null;
         pf: number | null;
         pt: number | null;
         basic: number | null;
-        employeeId: number;
         payrollRunId: number;
         lopDays: number | null;
         gross: number;
@@ -266,22 +266,22 @@ export declare class PayrollService {
     getMyPayslips(userId: number): Promise<({
         payrollLineItem: {
             payrollRun: {
-                id: number;
-                createdAt: Date;
-                updatedAt: Date;
                 status: import(".prisma/client").$Enums.PayrollStatus;
+                createdAt: Date;
+                id: number;
                 year: number;
                 month: number;
+                updatedAt: Date;
                 note: string | null;
             };
         } & {
             id: number;
+            employeeId: number;
             hra: number | null;
             otherAllowance: number | null;
             pf: number | null;
             pt: number | null;
             basic: number | null;
-            employeeId: number;
             payrollRunId: number;
             lopDays: number | null;
             gross: number;

@@ -6,10 +6,12 @@ export declare class EmployeesController {
         ok: boolean;
         message: string;
         employee: {
-            id: number;
             createdAt: Date;
+            id: number;
+            userId: number;
             name: string;
             phone: string | null;
+            managerId: number | null;
             joinDate: Date;
             confirmed: boolean;
             inTime: string | null;
@@ -25,8 +27,6 @@ export declare class EmployeesController {
             dob: Date | null;
             pfNumber: string | null;
             uan: string | null;
-            managerId: number | null;
-            userId: number;
         };
         credentials: {
             email: string;
@@ -35,18 +35,20 @@ export declare class EmployeesController {
     }>;
     findAll(): Promise<({
         user: {
+            createdAt: Date;
             id: number;
             email: string;
             password: string;
             role: import(".prisma/client").$Enums.Role;
-            createdAt: Date;
             tempPassword: string | null;
         };
     } & {
-        id: number;
         createdAt: Date;
+        id: number;
+        userId: number;
         name: string;
         phone: string | null;
+        managerId: number | null;
         joinDate: Date;
         confirmed: boolean;
         inTime: string | null;
@@ -62,23 +64,23 @@ export declare class EmployeesController {
         dob: Date | null;
         pfNumber: string | null;
         uan: string | null;
-        managerId: number | null;
-        userId: number;
     })[]>;
     findOne(id: string): Promise<{
         user: {
+            createdAt: Date;
             id: number;
             email: string;
             password: string;
             role: import(".prisma/client").$Enums.Role;
-            createdAt: Date;
             tempPassword: string | null;
         };
     } & {
-        id: number;
         createdAt: Date;
+        id: number;
+        userId: number;
         name: string;
         phone: string | null;
+        managerId: number | null;
         joinDate: Date;
         confirmed: boolean;
         inTime: string | null;
@@ -94,14 +96,14 @@ export declare class EmployeesController {
         dob: Date | null;
         pfNumber: string | null;
         uan: string | null;
-        managerId: number | null;
-        userId: number;
     }>;
     update(id: string, body: any): Promise<{
-        id: number;
         createdAt: Date;
+        id: number;
+        userId: number;
         name: string;
         phone: string | null;
+        managerId: number | null;
         joinDate: Date;
         confirmed: boolean;
         inTime: string | null;
@@ -117,8 +119,6 @@ export declare class EmployeesController {
         dob: Date | null;
         pfNumber: string | null;
         uan: string | null;
-        managerId: number | null;
-        userId: number;
     }>;
     remove(id: string): Promise<{
         ok: boolean;

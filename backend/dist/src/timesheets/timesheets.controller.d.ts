@@ -8,10 +8,10 @@ export declare class TimesheetsController {
         hours: number;
         date: string;
     }): Promise<{
-        id: number;
-        createdAt: Date;
-        employeeId: number;
         status: import(".prisma/client").$Enums.TimesheetStatus;
+        createdAt: Date;
+        id: number;
+        employeeId: number;
         date: Date;
         hours: number;
         comments: string | null;
@@ -20,10 +20,10 @@ export declare class TimesheetsController {
         reviewedById: number | null;
     }>;
     getMyTimesheets(req: any): Promise<{
-        id: number;
-        createdAt: Date;
-        employeeId: number;
         status: import(".prisma/client").$Enums.TimesheetStatus;
+        createdAt: Date;
+        id: number;
+        employeeId: number;
         date: Date;
         hours: number;
         comments: string | null;
@@ -40,10 +40,10 @@ export declare class TimesheetsController {
             };
         };
     } & {
-        id: number;
-        createdAt: Date;
-        employeeId: number;
         status: import(".prisma/client").$Enums.TimesheetStatus;
+        createdAt: Date;
+        id: number;
+        employeeId: number;
         date: Date;
         hours: number;
         comments: string | null;
@@ -65,10 +65,10 @@ export declare class TimesheetsController {
         action: string;
         comments?: string;
     }): Promise<{
-        id: number;
-        createdAt: Date;
-        employeeId: number;
         status: import(".prisma/client").$Enums.TimesheetStatus;
+        createdAt: Date;
+        id: number;
+        employeeId: number;
         date: Date;
         hours: number;
         comments: string | null;

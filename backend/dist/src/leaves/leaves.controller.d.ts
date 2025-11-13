@@ -5,54 +5,56 @@ export declare class LeavesController {
     private leavesService;
     constructor(leavesService: LeavesService);
     apply(req: any, dto: CreateLeaveDto): Promise<{
-        id: number;
+        status: string;
         createdAt: Date;
+        id: number;
+        employeeId: number;
         managerId: number | null;
         type: string;
-        employeeId: number;
         startDate: Date;
         endDate: Date;
         days: number;
-        status: string;
         hrId: number | null;
     }>;
     myLeaves(req: any): Promise<({
         actions: ({
             user: {
+                createdAt: Date;
                 id: number;
                 email: string;
                 password: string;
                 role: import(".prisma/client").$Enums.Role;
-                createdAt: Date;
                 tempPassword: string | null;
             };
         } & {
-            id: number;
-            role: string;
             createdAt: Date;
+            id: number;
             userId: number;
-            leaveId: number;
             action: string;
+            role: string;
             comments: string | null;
+            leaveId: number;
         })[];
     } & {
-        id: number;
+        status: string;
         createdAt: Date;
+        id: number;
+        employeeId: number;
         managerId: number | null;
         type: string;
-        employeeId: number;
         startDate: Date;
         endDate: Date;
         days: number;
-        status: string;
         hrId: number | null;
     })[]>;
     pending(req: any): Promise<({
         employee: {
-            id: number;
             createdAt: Date;
+            id: number;
+            userId: number;
             name: string;
             phone: string | null;
+            managerId: number | null;
             joinDate: Date;
             confirmed: boolean;
             inTime: string | null;
@@ -68,49 +70,47 @@ export declare class LeavesController {
             dob: Date | null;
             pfNumber: string | null;
             uan: string | null;
-            managerId: number | null;
-            userId: number;
         };
         actions: ({
             user: {
+                createdAt: Date;
                 id: number;
                 email: string;
                 password: string;
                 role: import(".prisma/client").$Enums.Role;
-                createdAt: Date;
                 tempPassword: string | null;
             };
         } & {
-            id: number;
-            role: string;
             createdAt: Date;
+            id: number;
             userId: number;
-            leaveId: number;
             action: string;
+            role: string;
             comments: string | null;
+            leaveId: number;
         })[];
     } & {
-        id: number;
+        status: string;
         createdAt: Date;
+        id: number;
+        employeeId: number;
         managerId: number | null;
         type: string;
-        employeeId: number;
         startDate: Date;
         endDate: Date;
         days: number;
-        status: string;
         hrId: number | null;
     })[]>;
     action(req: any, id: number, dto: ActionLeaveDto): Promise<{
-        id: number;
+        status: string;
         createdAt: Date;
+        id: number;
+        employeeId: number;
         managerId: number | null;
         type: string;
-        employeeId: number;
         startDate: Date;
         endDate: Date;
         days: number;
-        status: string;
         hrId: number | null;
     }>;
     summary(): Promise<{
@@ -126,21 +126,21 @@ export declare class LeavesController {
     }>;
     getAudit(id: number): Promise<({
         user: {
+            createdAt: Date;
             id: number;
             email: string;
             password: string;
             role: import(".prisma/client").$Enums.Role;
-            createdAt: Date;
             tempPassword: string | null;
         };
     } & {
-        id: number;
-        role: string;
         createdAt: Date;
+        id: number;
         userId: number;
-        leaveId: number;
         action: string;
+        role: string;
         comments: string | null;
+        leaveId: number;
     })[]>;
     getLeaveBalance(userId: number): Promise<{
         entitlement: {

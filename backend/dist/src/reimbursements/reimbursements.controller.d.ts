@@ -11,54 +11,56 @@ export declare class ReimbursementsController {
     }): Promise<{
         ok: boolean;
         reimbursement: {
-            id: number;
-            createdAt: Date;
-            employeeId: number;
-            description: string | null;
-            status: import(".prisma/client").$Enums.ReimbursementStatus;
             amount: number;
+            description: string | null;
             receiptUrl: string | null;
+            status: import(".prisma/client").$Enums.ReimbursementStatus;
+            createdAt: Date;
             resolvedAt: Date | null;
             notes: string | null;
+            id: number;
+            employeeId: number;
             resolvedById: number | null;
         };
     }>;
     myReimbursements(user: any): Promise<({
         actions: ({
             user: {
+                createdAt: Date;
                 id: number;
                 email: string;
                 password: string;
                 role: import(".prisma/client").$Enums.Role;
-                createdAt: Date;
                 tempPassword: string | null;
             };
         } & {
-            id: number;
             createdAt: Date;
-            userId: number;
-            action: string;
             notes: string | null;
+            id: number;
+            userId: number;
             reimbursementId: number;
+            action: string;
         })[];
     } & {
-        id: number;
-        createdAt: Date;
-        employeeId: number;
-        description: string | null;
-        status: import(".prisma/client").$Enums.ReimbursementStatus;
         amount: number;
+        description: string | null;
         receiptUrl: string | null;
+        status: import(".prisma/client").$Enums.ReimbursementStatus;
+        createdAt: Date;
         resolvedAt: Date | null;
         notes: string | null;
+        id: number;
+        employeeId: number;
         resolvedById: number | null;
     })[]>;
     listAll(user: any): Promise<({
         employee: {
-            id: number;
             createdAt: Date;
+            id: number;
+            userId: number;
             name: string;
             phone: string | null;
+            managerId: number | null;
             joinDate: Date;
             confirmed: boolean;
             inTime: string | null;
@@ -74,77 +76,75 @@ export declare class ReimbursementsController {
             dob: Date | null;
             pfNumber: string | null;
             uan: string | null;
-            managerId: number | null;
-            userId: number;
         };
-        actions: ({
-            user: {
-                id: number;
-                email: string;
-                password: string;
-                role: import(".prisma/client").$Enums.Role;
-                createdAt: Date;
-                tempPassword: string | null;
-            };
-        } & {
-            id: number;
-            createdAt: Date;
-            userId: number;
-            action: string;
-            notes: string | null;
-            reimbursementId: number;
-        })[];
         resolvedBy: {
+            createdAt: Date;
             id: number;
             email: string;
             password: string;
             role: import(".prisma/client").$Enums.Role;
-            createdAt: Date;
             tempPassword: string | null;
         };
+        actions: ({
+            user: {
+                createdAt: Date;
+                id: number;
+                email: string;
+                password: string;
+                role: import(".prisma/client").$Enums.Role;
+                tempPassword: string | null;
+            };
+        } & {
+            createdAt: Date;
+            notes: string | null;
+            id: number;
+            userId: number;
+            reimbursementId: number;
+            action: string;
+        })[];
     } & {
-        id: number;
-        createdAt: Date;
-        employeeId: number;
-        description: string | null;
-        status: import(".prisma/client").$Enums.ReimbursementStatus;
         amount: number;
+        description: string | null;
         receiptUrl: string | null;
+        status: import(".prisma/client").$Enums.ReimbursementStatus;
+        createdAt: Date;
         resolvedAt: Date | null;
         notes: string | null;
+        id: number;
+        employeeId: number;
         resolvedById: number | null;
     })[]>;
     resolve(id: number, user: any, body: {
         status: 'APPROVED' | 'REJECTED';
         notes?: string;
     }): Promise<{
-        id: number;
-        createdAt: Date;
-        employeeId: number;
-        description: string | null;
-        status: import(".prisma/client").$Enums.ReimbursementStatus;
         amount: number;
+        description: string | null;
         receiptUrl: string | null;
+        status: import(".prisma/client").$Enums.ReimbursementStatus;
+        createdAt: Date;
         resolvedAt: Date | null;
         notes: string | null;
+        id: number;
+        employeeId: number;
         resolvedById: number | null;
     }>;
     history(id: number): Promise<({
         user: {
+            createdAt: Date;
             id: number;
             email: string;
             password: string;
             role: import(".prisma/client").$Enums.Role;
-            createdAt: Date;
             tempPassword: string | null;
         };
     } & {
-        id: number;
         createdAt: Date;
-        userId: number;
-        action: string;
         notes: string | null;
+        id: number;
+        userId: number;
         reimbursementId: number;
+        action: string;
     })[]>;
     downloadReceipt(id: number, res: Response): Promise<void>;
 }

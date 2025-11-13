@@ -4,18 +4,20 @@ export declare class EmployeesService {
     constructor(prisma: PrismaService);
     findAll(): Promise<({
         user: {
+            createdAt: Date;
             id: number;
             email: string;
             password: string;
             role: import(".prisma/client").$Enums.Role;
-            createdAt: Date;
             tempPassword: string | null;
         };
     } & {
-        id: number;
         createdAt: Date;
+        id: number;
+        userId: number;
         name: string;
         phone: string | null;
+        managerId: number | null;
         joinDate: Date;
         confirmed: boolean;
         inTime: string | null;
@@ -31,23 +33,23 @@ export declare class EmployeesService {
         dob: Date | null;
         pfNumber: string | null;
         uan: string | null;
-        managerId: number | null;
-        userId: number;
     })[]>;
     findOne(id: number): Promise<{
         user: {
+            createdAt: Date;
             id: number;
             email: string;
             password: string;
             role: import(".prisma/client").$Enums.Role;
-            createdAt: Date;
             tempPassword: string | null;
         };
     } & {
-        id: number;
         createdAt: Date;
+        id: number;
+        userId: number;
         name: string;
         phone: string | null;
+        managerId: number | null;
         joinDate: Date;
         confirmed: boolean;
         inTime: string | null;
@@ -63,8 +65,6 @@ export declare class EmployeesService {
         dob: Date | null;
         pfNumber: string | null;
         uan: string | null;
-        managerId: number | null;
-        userId: number;
     }>;
     createEmployee(dto: {
         name: string;
@@ -90,10 +90,12 @@ export declare class EmployeesService {
         ok: boolean;
         message: string;
         employee: {
-            id: number;
             createdAt: Date;
+            id: number;
+            userId: number;
             name: string;
             phone: string | null;
+            managerId: number | null;
             joinDate: Date;
             confirmed: boolean;
             inTime: string | null;
@@ -109,8 +111,6 @@ export declare class EmployeesService {
             dob: Date | null;
             pfNumber: string | null;
             uan: string | null;
-            managerId: number | null;
-            userId: number;
         };
         credentials: {
             email: string;
@@ -118,10 +118,12 @@ export declare class EmployeesService {
         };
     }>;
     updateEmployee(id: number, dto: any): Promise<{
-        id: number;
         createdAt: Date;
+        id: number;
+        userId: number;
         name: string;
         phone: string | null;
+        managerId: number | null;
         joinDate: Date;
         confirmed: boolean;
         inTime: string | null;
@@ -137,8 +139,6 @@ export declare class EmployeesService {
         dob: Date | null;
         pfNumber: string | null;
         uan: string | null;
-        managerId: number | null;
-        userId: number;
     }>;
     removeEmployee(id: number): Promise<{
         ok: boolean;

@@ -12,10 +12,12 @@ export declare class AdminController {
     getRecentActivity(): Promise<{
         recentLeaves: ({
             employee: {
-                id: number;
                 createdAt: Date;
+                id: number;
+                userId: number;
                 name: string;
                 phone: string | null;
+                managerId: number | null;
                 joinDate: Date;
                 confirmed: boolean;
                 inTime: string | null;
@@ -31,27 +33,27 @@ export declare class AdminController {
                 dob: Date | null;
                 pfNumber: string | null;
                 uan: string | null;
-                managerId: number | null;
-                userId: number;
             };
         } & {
-            id: number;
+            status: string;
             createdAt: Date;
+            id: number;
+            employeeId: number;
             managerId: number | null;
             type: string;
-            employeeId: number;
             startDate: Date;
             endDate: Date;
             days: number;
-            status: string;
             hrId: number | null;
         })[];
         recentTimesheets: ({
             employee: {
-                id: number;
                 createdAt: Date;
+                id: number;
+                userId: number;
                 name: string;
                 phone: string | null;
+                managerId: number | null;
                 joinDate: Date;
                 confirmed: boolean;
                 inTime: string | null;
@@ -67,14 +69,12 @@ export declare class AdminController {
                 dob: Date | null;
                 pfNumber: string | null;
                 uan: string | null;
-                managerId: number | null;
-                userId: number;
             };
         } & {
-            id: number;
-            createdAt: Date;
-            employeeId: number;
             status: import(".prisma/client").$Enums.TimesheetStatus;
+            createdAt: Date;
+            id: number;
+            employeeId: number;
             date: Date;
             hours: number;
             comments: string | null;
@@ -84,10 +84,12 @@ export declare class AdminController {
         })[];
         recentReimbursements: ({
             employee: {
-                id: number;
                 createdAt: Date;
+                id: number;
+                userId: number;
                 name: string;
                 phone: string | null;
+                managerId: number | null;
                 joinDate: Date;
                 confirmed: boolean;
                 inTime: string | null;
@@ -103,19 +105,17 @@ export declare class AdminController {
                 dob: Date | null;
                 pfNumber: string | null;
                 uan: string | null;
-                managerId: number | null;
-                userId: number;
             };
         } & {
-            id: number;
-            createdAt: Date;
-            employeeId: number;
-            description: string | null;
-            status: import(".prisma/client").$Enums.ReimbursementStatus;
             amount: number;
+            description: string | null;
             receiptUrl: string | null;
+            status: import(".prisma/client").$Enums.ReimbursementStatus;
+            createdAt: Date;
             resolvedAt: Date | null;
             notes: string | null;
+            id: number;
+            employeeId: number;
             resolvedById: number | null;
         })[];
     }>;

@@ -6,11 +6,11 @@ export declare class AttendanceController {
     punch(req: any, file: Express.Multer.File, dto: CreateAttendanceDto): Promise<{
         ok: boolean;
         record: {
-            id: number;
             createdAt: Date;
+            id: number;
+            employeeId: number;
             location: string | null;
             type: string;
-            employeeId: number;
             timestamp: Date;
             selfieUrl: string | null;
             deviceId: string | null;

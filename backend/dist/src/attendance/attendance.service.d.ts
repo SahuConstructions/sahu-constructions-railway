@@ -12,11 +12,11 @@ export declare class AttendanceService {
     create(userId: number, dto: CreateAttendanceDto & {
         selfieFilePath?: string;
     }): Promise<{
-        id: number;
         createdAt: Date;
+        id: number;
+        employeeId: number;
         location: string | null;
         type: string;
-        employeeId: number;
         timestamp: Date;
         selfieUrl: string | null;
         deviceId: string | null;
