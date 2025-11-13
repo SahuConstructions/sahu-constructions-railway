@@ -9,7 +9,18 @@
     "target": "ES2020",
     "sourceMap": true,
     "outDir": "dist",
+    "rootDir": "src",
     "incremental": true,
     "skipLibCheck": true
-    }
-    }
+    },
+    "include": [
+      "src/**/*"
+    ],
+    "exclude": [
+      "node_modules",
+      "dist",
+      "prisma",
+      "uploads",
+      "temp_uploads"
+    ]
+}
