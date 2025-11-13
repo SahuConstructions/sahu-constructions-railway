@@ -2,12 +2,15 @@
   "name": "sahu-backend",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/main.js",
   "scripts": {
     "start:dev": "npx nest start --watch",
     "start": "node dist/main.js",
     "build": "npx nest build",
+    "postbuild": "cp -r prisma dist/ && cp -r uploads dist/ && cp -r temp_uploads dist/",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
+    "render-build": "npm install && npm run build",
     "lint": "eslint '{src,test}/**/*.ts' --fix"
   },
   "dependencies": {
