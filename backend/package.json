@@ -6,8 +6,8 @@
   "scripts": {
     "start:dev": "npx nest start --watch",
     "start": "node dist/main.js",
-    "build": "npx nest build",
-    "postbuild": "cp -r prisma dist/ && cp -r uploads dist/ && cp -r temp_uploads dist/",
+    "build": "npx nest build && npm run copy:assets",
+    "copy:assets": "shx mkdir -p dist/prisma dist/uploads dist/temp_uploads && cp -r prisma/* dist/prisma/ && cp -r uploads/* dist/uploads/ 2>/dev/null || : && cp -r temp_uploads/* dist/temp_uploads/ 2>/dev/null || :",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "render-build": "npm install && npm run build",
@@ -57,6 +57,7 @@
     "@types/passport-jwt": "^4.0.1",
     "@types/socket.io": "^3.0.1",
     "prisma": "^5.0.0",
+    "shx": "^0.4.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.1.3",
     "vite": "^7.1.7"
