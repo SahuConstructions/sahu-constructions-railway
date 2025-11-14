@@ -26,6 +26,24 @@ export default function ManagerReimbursementsPage() {
     fetchReimbursements();
   }, []);
 
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.innerHTML = `
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+`;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   const fetchReimbursements = async () => {
     setLoading(true);
     try {
@@ -337,15 +355,4 @@ function Table({
   );
 }
 
-/* 🪄 Drawer Animation */
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes slideUp {
-  from { transform: translateY(100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-.animate-slideUp {
-  animation: slideUp 0.3s ease-out;
-}
-`;
-document.head.appendChild(style);
+/* 🪄 Drawer animation handled via useEffect */
